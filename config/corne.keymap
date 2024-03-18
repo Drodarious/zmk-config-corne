@@ -5,14 +5,13 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        Main {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -20,40 +19,19 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp F     &kp P  &kp B        &kp J    &kp L  &kp U      &kp Y    &kp SEMICOLON  &kp BSPC
-&kp LCTRL  &kp A  &kp R  &kp S     &kp T  &kp G        &kp M    &kp N  &kp E      &kp I    &kp O          &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C     &kp D  &kp V        &kp K    &kp H  &kp COMMA  &kp DOT  &kp FSLH       &kp ESC
-                         &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
+&kp ESCAPE    &kp Q           &kp W           &kp F             &kp P               &kp B    &kp J  &kp L                &kp U              &kp Y            &trans           &kp HOME
+&kp TAB       &mt LEFT_WIN A  &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LEFT_CONTROL T  &kp G    &kp M  &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I  &mt RIGHT_WIN O  &kp END
+&kp CAPSLOCK  &kp Z           &kp X           &kp C             &kp D               &kp V    &kp K  &kp H                &trans             &trans           &trans           &trans
+                                              &kp BACKSPACE     &kp SPACE           &mo 1    &mo 1  &kp ENTER            &kp DELETE
             >;
         };
 
-        lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
+        Numbols {
             bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&kp LSHFT   &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
-                                        &kp LGUI      &trans        &kp SPACE       &kp RET   &trans    &kp RALT
-            >;
-        };
-
-        raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
+&trans     &trans            &kp BACKSLASH  &kp LEFT_PARENTHESIS         &kp RIGHT_PARENTHESIS  &trans    &trans  &kp N7  &kp N8              &kp N9  &trans  &trans
+&kp GRAVE  &kp SINGLE_QUOTE  &kp SEMICOLON  &mt LEFT_SHIFT LEFT_BRACKET  &kp RIGHT_BRACKET      &trans    &trans  &kp N4  &mt RIGHT_SHIFT N5  &kp N6  &trans  &trans
+&trans     &trans            &kp SLASH      &kp COMMA                    &kp PERIOD             &trans    &kp N0  &kp N1  &kp N2              &kp N3  &trans  &trans
+                                            &trans                       &trans                 &trans    &trans  &trans  &trans
             >;
         };
     };
