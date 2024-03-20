@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
@@ -51,7 +52,7 @@
             bindings = <
 &kp ESCAPE    &kp Q           &kp W           &kp F             &kp P               &kp B    &kp J  &kp L                &kp U              &kp Y            &trans           &kp HOME
 &kp TAB       &mt LEFT_WIN A  &mt LEFT_ALT R  &mt LEFT_SHIFT S  &mt LEFT_CONTROL T  &kp G    &kp M  &mt RIGHT_CONTROL N  &mt RIGHT_SHIFT E  &mt RIGHT_ALT I  &mt RIGHT_WIN O  &kp END
-&kp CAPSLOCK  &kp Z           &kp X           &kp C             &kp D               &kp V    &kp K  &kp H                &trans             &trans           &trans           &trans
+&kp CAPSLOCK  &kp Z           &kp X           &kp C             &kp D               &kp V    &kp K  &kp H                &trans             &trans           &trans           &mo 2
                                               &kp BACKSPACE     &kp SPACE           &mo 1    &mo 1  &kp ENTER            &kp DELETE
             >;
         };
@@ -62,6 +63,15 @@
 &kp GRAVE  &kp SINGLE_QUOTE  &kp SEMICOLON  &mt LEFT_SHIFT LEFT_BRACKET  &kp RIGHT_BRACKET      &trans    &trans  &kp N4  &mt RIGHT_SHIFT N5  &kp N6  &trans  &trans
 &trans     &trans            &kp SLASH      &kp COMMA                    &kp PERIOD             &trans    &kp N0  &kp N1  &kp N2              &kp N3  &trans  &trans
                                             &trans                       &trans                 &trans    &trans  &trans  &trans
+            >;
+        };
+
+        Bluetooth {
+            bindings = <
+&trans          &trans      &trans         &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans      &trans         &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR_ALL  &bt BT_CLR  &bt BT_DISC 0  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                                           &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
